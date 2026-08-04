@@ -1,0 +1,31 @@
+name: Automated Weather ETL
+
+# 1. When should this run?
+on:
+  schedule:
+    - cron: '0 7 * * *' # Runs at 12:00 PM PKT (7:00 AM UTC) daily
+  workflow_dispatch:    # Adds a button on GitHub to run it manually anytime!
+
+# 2. What kind of server do we need?
+jobs:
+  run-etl:
+    runs-on: ubuntu-latest # A fresh Linux environment in the cloud
+
+    # 3. What exact steps should it take?
+    steps:
+      - name: Download my code
+        uses: actions/checkout@v4
+
+      - name: Make script executable and run it
+        run: |
+          chmod +x weather_report.zsh
+          ./weather_report.zsh
+
+      - name: Commit and push the new data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add rx_poc.log
+          # The '|| echo' prevents the pipeline from crashing if the data is exactly the same
+          git commit -m "data: cloud automated weather update" || echo "No changes to commit"
+          git push

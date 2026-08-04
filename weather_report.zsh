@@ -26,15 +26,4 @@ echo -e $record >> rx_poc.log
 
 rm temperatures.txt
 
-# 1. Navigate to your project folder
-# Cron runs in a minimal background environment, so it must be told exactly where to go
-cd /mnt/c/users/qures/projects/linux/weather_etl
 
-# 2. Stage the newly updated log file
-git add rx_poc.log
-
-# 3. Commint the changes
-git commit -m "date: Automated daily weather log update"
-
-# 4. Push to Github repo
-git push
