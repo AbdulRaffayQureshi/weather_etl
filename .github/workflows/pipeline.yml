@@ -3,7 +3,7 @@ name: Automated Weather ETL
 # 1. When should this run?
 on:
   schedule:
-    - cron: '0 7 * * *' # Runs at 12:00 PM PKT (7:00 AM UTC) daily
+    - cron: '0 */4 * * *' # Runs at minute 0 past every 4th hour
   workflow_dispatch:    # Adds a button on GitHub to run it manually anytime!
 
 # 2. What kind of server do we need?
