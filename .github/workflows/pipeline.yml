@@ -19,7 +19,7 @@ jobs:
       - name: Make script executable and run it
         run: |
           chmod +x weather_report.zsh
-          ./weather_report.zsh
+          bash weather_report.zsh
 
       - name: Commit and push the new data
         run: |
