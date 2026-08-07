@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/zsh
 
 # Define the date variable for the filename
 today=$(date +%Y%m%d)
