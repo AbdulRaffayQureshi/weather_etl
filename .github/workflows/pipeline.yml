@@ -23,8 +23,8 @@ jobs:
 
       - name: Commit and push the new data
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "AbdulRaffayQureshi"
+          git config user.email "136194426+AbdulRaffayQureshi@://github.com"
           git add rx_poc.log
           # The '|| echo' prevents the pipeline from crashing if the data is exactly the same
           git commit -m "data: cloud automated weather update" || echo "No changes to commit"
